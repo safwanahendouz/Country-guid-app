@@ -26,8 +26,6 @@ A modern, interactive **Country Guide App** built with **JavaScript** that allow
 - HTML5  
 - CSS3  
 - JavaScript (ES6+)  
-- REST Countries API  
-
 ---
 
 ## 📂 Project Structure
