@@ -8,17 +8,17 @@ searchBtn.addEventListener("click", () => {
     fetch(finalURL)
         .then((response) => response.json())
         .then((data) => {
-            console.log(data[0]);
-            console.log(data[0].capital[0]);
-            console.log(data[0].flags.svg);
-            console.log(data[0].name.common);
-            console.log(data[0].continents[0]);
-            console.log(Object.keys(data[0].currencies)[0])
-            ;
-            console.log(data[0].currencies[Object.keys(data[0].currencies)].name);
-            console.log(
-                Object.values(data[0].languages).toString().split(",").join(", ")
-            );
+            // console.log(data[0]);
+            // console.log(data[0].capital[0]);
+            // console.log(data[0].flags.svg);
+            // console.log(data[0].name.common);
+            // console.log(data[0].continents[0]);
+            // console.log(Object.keys(data[0].currencies)[0])
+            // ;
+            // console.log(data[0].currencies[Object.keys(data[0].currencies)].name);
+            // console.log(
+            //     Object.values(data[0].languages).toString().split(",").join(", ")
+            // );
             result.innerHTML = `
             <img src="${data[0].flags.svg}"
             class="flag-img">
@@ -54,14 +54,20 @@ searchBtn.addEventListener("click", () => {
                 <div class="data-wrapper">
                     <h4>Common Languages:</h4>
                     <span>${
-                    Object.values(data[0].languages).toString().split(",").join(", ")
-                    } - ${Object.keys(data[0].currencies)[0]}
+                    Object.values(data[0].languages)
+                    .toString()
+                    .split(",")
+                    .join(", ")
+                    } 
                     </span>
                 </div>
             </div>
-            `
-
-
-            
+            `;
+        }).catch(() => {
+            if(countryName.length == 0){
+                result.innerHTML = `<h3>The input field cannot be empty</h3>`;
+            } else {
+                result.innerHTML = `<h3>please enter a valid country name.</h3>`;
+            }
         })
 });
