@@ -49,6 +49,10 @@ body {
     -o-border-radius: 1.5em;
 }
 
+.search-wrapper button:hover {
+    background-color: #142253;
+}
+
 .search-wrapper input {
     font-size: 1em;
     padding: 0 0.62em;
